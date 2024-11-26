@@ -3,7 +3,6 @@
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <div v-for="book in booksData" :key="book.id" class="mb-2">
       <a
-        href="#"
         class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
       >
         <img
@@ -19,8 +18,8 @@
             {{ book.author }}
           </p>
           <a
-            href="#"
-            class="inline-flex items-center w-32 px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            @click="showBookDetails(book)"
+            class="inline-flex items-center w-32 px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:cursor-pointer"
           >
             Read more
             <svg
@@ -43,12 +42,27 @@
       </a>
     </div>
   </div>
+
+
+  <div v-if="selectedBook">
+    <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" @click="selectedBook = null">
+      <div class="bg-cyan-800 p-6 rounded shadow-lg text-center" @click.stop>
+        <img class="object-cover w-full rounded-t-lg h-96 " :src="selectedBook.coverImage" alt="">
+        <h2 class="text-xl font-bold mb-4">{{ selectedBook.title }}</h2>
+        <p class="mb-4">{{ selectedBook.description }}</p>
+        <button @click="closeModal" class="px-4 py-2 bg-red-500 text-white rounded">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
 
 const booksData = ref([]);
+const selectedBook = ref(null);
 
 const getBooks = async () => {
   try {
@@ -67,4 +81,13 @@ const getBooks = async () => {
 onMounted(() => {
   getBooks();
 });
+
+const showBookDetails = (book) => {
+  selectedBook.value = book; 
+};
+
+const closeModal = () => {
+  selectedBook.value = null; 
+};
+
 </script>

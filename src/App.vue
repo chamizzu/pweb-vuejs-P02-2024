@@ -26,7 +26,7 @@ export default defineComponent({
 
 <template>
   <div class="min-h-screen bg-slate-950">
-    <nav class="bg-gradient-to-r from-violet-600 to-indigo-600 shadow-lg">
+    <nav class="bg-blue-900 from-violet-600 to-indigo-600 shadow-lg">
       <div class="max-w-6xl mx-auto px-4">
         <div class="flex justify-between items-center h-16">
           
