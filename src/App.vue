@@ -29,10 +29,10 @@ export default defineComponent({
     <nav class="bg-gradient-to-r from-violet-600 to-indigo-600 shadow-lg">
       <div class="max-w-6xl mx-auto px-4">
         <div class="flex justify-between items-center h-16">
-          <!-- Logo
+          
           <div class="flex items-center">
             <img alt="Vue logo" class="h-10 w-10 bg-white rounded-full p-1" src="@/assets/logo.svg" />
-          </div> -->
+          </div>
 
           <!-- Desktop Menu -->
           <div class="hidden md:flex space-x-6">

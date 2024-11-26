@@ -1,4 +1,5 @@
 <template>
+  <h1 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-4xl dark:text-white">Available Books</h1>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <div v-for="book in booksData" :key="book.id" class="mb-2">
       <a
