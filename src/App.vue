@@ -48,6 +48,13 @@ export default defineComponent({
             >
               Add New Book
             </RouterLink>
+
+            <RouterLink
+              to="/detail-book"
+              class="text-white hover:text-pink-200 px-4 py-2 rounded-full transition-all duration-300 hover:bg-white/10"
+            >
+              Books Detail
+            </RouterLink>
           </div>
 
           <!-- Mobile menu button -->
@@ -104,6 +111,12 @@ export default defineComponent({
                 @click="closeMenu"
               >
                 Add New Book
+              </RouterLink>
+              <RouterLink
+                to="/detail-book"
+                @click="closeMenu"
+              >
+                Book's Detail
               </RouterLink>
             </div>
           </div>
