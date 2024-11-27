@@ -58,7 +58,7 @@ const getBooks = async () => {
     }
     const data = await response.json();
     console.log('Fetched data:', data);
-    booksData.value = data;
+    booksData.value = data;  // Perbaikan disini
   } catch (error) {
     console.error('Fetch error:', error);
   }
