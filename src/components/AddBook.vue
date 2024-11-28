@@ -170,7 +170,7 @@
       <div class="flex justify-center mt-6">
         <button 
           type="submit" 
-          class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+          class="bg-blue-600 px-6 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
         >
           Submit Book
         </button>

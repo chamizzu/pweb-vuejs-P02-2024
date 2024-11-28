@@ -130,3 +130,10 @@ export default defineComponent({
   </div>
 </template>
 
+
+<style>
+::-webkit-scrollbar {
+    display: none;
+}
+
+</style>
