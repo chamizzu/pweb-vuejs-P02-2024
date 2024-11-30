@@ -77,17 +77,18 @@
             />
             <div class="ml-2 text-white bg-cyan-950 w-5/6 p-4 rounded-md">
               <h2 class="text-2xl font-bold">{{ selectedBook.title }}</h2>
-              <p class="text-sm">
+
                 <div class="flex mt-2">
-                  <span class="bg-white text-yellow-400 text-s font-semibold py-1 rounded w-40 text-center mb-2">
+                  <span class="bg-white text-yellow-400 text-sm  py-1 rounded w-40 text-center mb-2">
                     {{ getStarRating(selectedBook.rating.average) }} ({{ selectedBook.rating.count }} reviews)
                   </span>
-                  <span class="text-s font-semibold px-3 py-1">
+                  <span class="text-sm px-3 py-1">
                     Stock: {{ selectedBook.qty }} pcs
                   </span>
                 </div>
+
                 <span class="font-semibold">Author: </span>{{ selectedBook.author }}
-              </p>
+
               <p class="text-sm">
                 <span class="font-semibold">Published Date: </span>{{ selectedBook.publishedDate }}
               </p>
@@ -97,10 +98,11 @@
               <p class="text-sm">
                 <span class="font-semibold">Tags: </span>{{ selectedBook.tags.join(', ') }}
               </p>
-              <p class="mt-2 mb-2">Synopsis: <br> {{ selectedBook.description }}</p>
-            <button @click="removebook(selectedBook._id)" class="mt-2 align-middle bg-red-500 p-2 rounded relative bottom-0 hover:bg-red-900 transition ease-in-out">
-              Remove
-            </button>
+              <p class="mt-2 mb-2 text-sm">Synopsis: <br> {{ selectedBook.description }}</p>
+
+                <button @click="removebook(selectedBook._id)" class="mt-2 align-middle bg-red-500 p-2 rounded relative bottom-0 hover:bg-red-900 transition ease-in-out">
+                Remove
+              </button>
             </div>
 
           </div>
@@ -302,7 +304,7 @@ const removebook = (bookid) => {
     setTimeout(() => {
       BookDeleted.value = false;
       getBooks();
-    }, 3000); // Show the animation for 3 seconds
+    }, 3000);
   })
   .catch(error => {
     console.error('Error removing book:', error);
