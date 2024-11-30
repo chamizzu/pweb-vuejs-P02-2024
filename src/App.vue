@@ -31,7 +31,7 @@ export default defineComponent({
         <div class="flex justify-between items-center h-16">
           
           <div class="flex items-center">
-            <img alt="Vue logo" class="h-10 w-10 bg-white rounded-full p-1" src="@/assets/logo.svg" />
+            <img alt="Vue logo" class="h-12 w-12 bg-white rounded-full p-1" src="@/assets/book-logo.svg" />
           </div>
 
           <!-- Desktop Menu -->

@@ -14,14 +14,14 @@
     <div v-if="!loading && !error" class="grid md:grid-cols-1 lg:grid-cols-2 gap-4">
       <div v-for="book in booksData" :key="book.id" class="mb-2">
         <a
-          class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-2xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 transition ease-in-out"
+          class="flex flex-col md:items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-2xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 transition ease-in-out"
         >
           <img
-            class="object-cover w-full rounded-t-lg h-96 md:h-96 md:w-auto md:rounded-none md:rounded-s-lg"
+            class="object-cover w-full rounded-t-lg h-3/4 md:h-96 md:w-auto md:rounded-none md:rounded-s-lg"
             :src="book.coverImage"
             alt=""
           />
-          <div class="flex flex-col justify-between p-4 leading-normal">
+          <div class="flex flex-col justify-start p-4 leading-normal">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               {{ book.title }}
             </h5>
@@ -65,9 +65,10 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
         </button>
+
         <Transition name="scale" appear>
           <div
-            class="flex flex-col bg-indigo-900 p-4 rounded-lg shadow md:flex-row md:max-w-3xl w-3/4"
+            class="flex flex-col bg-indigo-900 p-4 rounded-lg shadow md:flex-row md:max-w-3xl w-3/4 max-h-screen overflow-auto md:w-auto md:mt-0 md:mb-0 mt-6 mb-3"
             @click.stop
           >
             <img
@@ -75,10 +76,10 @@
               :src="selectedBook.coverImage"
               alt=""
             />
-            <div class="ml-2 text-white bg-cyan-950 w-5/6 p-4 rounded-md">
+            <div class="ml-0 md:ml-2 text-white bg-cyan-950 md:w-5/6 w-auto p-4 rounded-md text-center md:text-left md:mt-0 mt-2">
               <h2 class="text-2xl font-bold">{{ selectedBook.title }}</h2>
 
-                <div class="flex mt-2">
+                <div class="flex mt-2 justify-center items-center flex-wrap md:justify-start">
                   <span class="bg-white text-yellow-400 text-sm  py-1 rounded w-40 text-center mb-2">
                     {{ getStarRating(selectedBook.rating.average) }} ({{ selectedBook.rating.count }} reviews)
                   </span>
@@ -87,22 +88,27 @@
                   </span>
                 </div>
 
-                <span class="font-semibold">Author: </span>{{ selectedBook.author }}
+                <span>Author: </span>{{ selectedBook.author }}
 
               <p class="text-sm">
-                <span class="font-semibold">Published Date: </span>{{ selectedBook.publishedDate }}
+                <span>Published Date: </span>{{ selectedBook.publishedDate }}
               </p>
               <p class="text-sm">
-                <span class="font-semibold">Publisher: </span>{{ selectedBook.publisher }}
+                <span>Publisher: </span>{{ selectedBook.publisher }}
               </p>
               <p class="text-sm">
-                <span class="font-semibold">Tags: </span>{{ selectedBook.tags.join(', ') }}
+                <span>Tags: </span>{{ selectedBook.tags.join(', ') }}
               </p>
               <p class="mt-2 mb-2 text-sm">Synopsis: <br> {{ selectedBook.description }}</p>
 
-                <button @click="removebook(selectedBook._id)" class="mt-2 align-middle bg-red-500 p-2 rounded relative bottom-0 hover:bg-red-900 transition ease-in-out">
-                Remove
-              </button>
+              <div class="flex md:justify-end justify-center items-end md:mt-10 mt-2">
+      <button
+        @click="removebook(selectedBook._id)"
+        class="mt-2 align-middle bg-red-500 p-2 rounded hover:bg-red-900 transition ease-in-out"
+      >
+        Remove
+      </button>
+    </div>
             </div>
 
           </div>
